@@ -8,7 +8,7 @@ void ScanManager::StartScan(const string &path)
 	while(1)
 	{
 		ScanDirectory(path);
-		this_thread::sleep_for(chrono::seconds(2)); //1 bug Ğ§ÂÊËğÉË
+		this_thread::sleep_for(chrono::seconds(2)); 
 	}
 }
 ScanManager& ScanManager::CreateInstance(const string &path)
@@ -84,7 +84,6 @@ void ScanManager::ScanDirectory(const string &path)
 	//µİ¹é±éÀú×ÓÄ¿Â¼
 	for(auto &dir : local_dirs)
 	{
-		//C:\Users\baoso\Desktop\55°à\test\½×¶ÎĞÔ¿¼ÊÔÊÔ¾í\CÓïÑÔ
 		string dir_path = path;
 		dir_path += '\\';
 		dir_path += dir;
