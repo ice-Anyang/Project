@@ -64,6 +64,8 @@ public:
 	void InsertDoc(const string &path, string doc);
 	//向数据库删除文档
 	void DeleteDoc(const string &path, string doc);
+	//清空数据库
+	void ClearDoc();
 public:
 	void Search(const string &key, vector<pair<string, string>> &doc_path);
 	static void SplitHightLight(const string &str, const string &key, string &prefix, string &hightlight, string &suffix);

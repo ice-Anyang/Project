@@ -18,5 +18,8 @@ using namespace std;
 
 #include<algorithm>
 
+#include<mutex>  //ª•≥‚¡ø
+#include<condition_variable>
+
 #define MAX_SQL_SIZE 256
 #define MAX_BUF_SIZE 128

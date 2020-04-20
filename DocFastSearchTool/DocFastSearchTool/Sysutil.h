@@ -7,7 +7,7 @@
 #endif
 
 #ifndef __DEBUG__
-	#define __DEBUG__
+	//#define __DEBUG__
 #endif
 
 ///////////////////////////////////////////////////////////////////////
@@ -85,12 +85,20 @@ void SystemEnd();
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
+//获取文件个数
+size_t GetFileCount(const string &path);
+
+//目录监控函数
+bool DirectoryWatch(const string &path);
+
 //系统功能函数模块
 void DirectoryList(const string &path, vector<string> &subfile, vector<string> &subdir);
+
 // 汉字转拼音全拼
 /* CSDN：http://blog.csdn.net/csnd_ayo */
 string ChineseConvertPinYinAllSpell(const string& dest_chinese);
 // 汉字转拼音首字母
 string ChineseConvertPinYinInitials(const string& name);
+
 // 颜色高亮显示一段字符串
 void ColourPrintf(const string  &str);

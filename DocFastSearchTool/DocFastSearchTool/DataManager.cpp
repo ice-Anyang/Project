@@ -96,6 +96,9 @@ DataManager::DataManager()
 	
 	//创建数据库表
 	InitSqlite();
+
+	//清空
+	ClearDoc();
 }
 DataManager::~DataManager()
 {}
@@ -148,11 +151,20 @@ void DataManager::DeleteDoc(const string &path, string doc)
 	m_dbmgr.ExecuteSql(sql);
 
 	//递归删除子目录
-	//E:\\Ice_bitwork\\bit-githup\\计算机专业课件
+	//C:\Users\baoso\Desktop\55班\test\阶段性考试试卷\my_dir
 	string doc_path = path;
 	doc_path += "\\";
+	//C:\Users\baoso\Desktop\55班\test\阶段性考试试卷\my_dir\
 	doc_path += doc;
+	//C:\Users\baoso\Desktop\55班\test\阶段性考试试卷\my_dir\AA
 	sprintf(sql, "delete from %s where doc_path like '%s%%'", DOC_TABLE, doc_path.c_str());
+	m_dbmgr.ExecuteSql(sql);
+}
+
+void DataManager::ClearDoc()
+{
+	char sql[MAX_SQL_SIZE] = {0};
+	sprintf(sql, "delete from %s", DOC_TABLE);
 	m_dbmgr.ExecuteSql(sql);
 }
 
@@ -191,7 +203,9 @@ void DataManager::Search(const string &key, vector<pair<string, string>> &doc_pa
 void DataManager::SplitHightLight(const string &str, const string &key, 
 								  string &prefix, string &hightlight, string &suffix)
 {
-	
+	//str = "123比特科技,让就业更简单666"; 
+	//key = "就业";
+
 	string strlower = str;
 	string keylower = key;
 	transform(str.begin(), str.end(), strlower.begin(), tolower);
@@ -208,6 +222,9 @@ void DataManager::SplitHightLight(const string &str, const string &key,
 	}
 
 	//2 拼音全拼搜索，如果能匹配，则需要匹配分离的汉字和拼音
+	//str = "123比特科技,abc,让就业更简单666"; 
+	//str_pinyin = "123bitekeji,abc,rangjiuyegengjiandan666"
+	//key_pinyin = "jiuye"
 
 	string str_pinyin = ChineseConvertPinYinAllSpell(strlower);
 	string key_pinyin = ChineseConvertPinYinAllSpell(keylower);
@@ -255,7 +272,52 @@ void DataManager::SplitHightLight(const string &str, const string &key,
 
 	//3 首字母搜索 如果能匹配，则需要匹配分离汉字和首字母
 	//留给同学们自行完成
-	
+	std::string key_initials = ChineseConvertPinYinInitials(keylower);
+	std::string str_initials = ChineseConvertPinYinInitials(strlower);
+	pos = str_initials.find(key_initials);
+	if (pos != std::string::npos)
+	{
+		size_t str_index = 0;
+		size_t initials_index = 0;
+
+		size_t highlight_index = 0;
+		size_t highlight_len = 0;
+
+		while (str_index < strlower.size())
+		{
+			// 如果拼音位置已经走到子串匹配的位置，则原串的位置就是高亮的起始位置
+			if (initials_index == pos)
+			{
+				highlight_index = str_index;
+			}
+
+			// 如果拼音位置已经走完keylower的位置，则原串的位置就是高亮的结束位置
+			if (initials_index >= pos + key_initials.size())
+			{
+				highlight_len = str_index - highlight_index + 1;
+				break;
+			}
+
+			if (strlower[str_index] >= 0 && strlower[str_index] <= 127)
+			{
+				// 如果是字符则各跳一个位置
+				++str_index;
+				++initials_index;
+			}
+			else
+			{
+				// 如果是汉字原串的汉字跳两个字节(gbk的汉字是两个字符)，首字母跳一个
+				str_index += 2;
+				++initials_index;
+			}
+		}
+
+		prefix = str.substr(0, highlight_index);
+		hightlight = str.substr(highlight_index, highlight_len);
+		suffix = str.substr(highlight_index + highlight_len, std::string::npos);
+		return;
+	}
+
 	//搜索失败，按照不高亮处理
 	prefix = str;
 	hightlight.clear();

@@ -30,7 +30,7 @@ void DrawRow(int x, int y)
 	for(int i=0; i<WIDTH-4; ++i)
 	{
 		SetCurPos(x, y+i);
-		printf("=");
+		printf("¡ª");
 	}
 }
 
@@ -84,6 +84,39 @@ void DrawMenu()
 	//ÉèÖÃ ÊäÈë:>
 	SetCurPos(HEIGHT-5, 2);
 	printf("%s","ÇëÊäÈë:>");
+}
+
+
+//////////////////////////////////////////////////////////////
+
+extern size_t g_FileCount;
+extern size_t g_ScanCount;
+
+size_t GetFileCount(const string &path)
+{
+	string _path = path + "\\" + "*.*";
+	struct _finddata_t fileAttri;
+	long handle = _findfirst(_path.c_str(), &fileAttri);
+	if(handle == -1)
+		return 0;
+
+	do
+	{
+		if(fileAttri.name[0] == '.')
+			continue;
+		g_ScanCount++;
+
+		if(fileAttri.attrib & _A_SUBDIR)
+			GetFileCount(path + "\\" + fileAttri.name);
+
+	}while(_findnext(handle, &fileAttri) == 0);
+	return g_ScanCount;
+}
+
+bool DirectoryWatch(const string &path)
+{
+	size_t file_count = GetFileCount(path);
+	return file_count != g_FileCount;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -271,7 +304,7 @@ string ChineseConvertPinYinInitials(const string& name)
 	std::string result;
 	int H = 0, L = 0, W = 0, j = 0;
 	size_t stringlen = ::strlen(cName);
-	for (int i = 0; i < stringlen; ++i)
+	for (size_t i = 0; i < stringlen; ++i)
 	{
 		H = (unsigned char)(cName[i + 0]);
 		L = (unsigned char)(cName[i + 1]);

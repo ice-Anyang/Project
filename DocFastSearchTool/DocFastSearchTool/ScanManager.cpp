@@ -1,5 +1,8 @@
 #include"ScanManager.h"
 
+size_t g_FileCount = 0;
+size_t g_ScanCount = 0;
+
 ScanManager::ScanManager()
 {}
 
@@ -7,17 +10,44 @@ void ScanManager::StartScan(const string &path)
 {
 	while(1)
 	{
+		//this_thread::sleep_for(chrono::seconds(2)); //1 bug 效率损伤
+
+		unique_lock<mutex> lock(m_mutex);
+		m_cond.wait(lock);
+
 		ScanDirectory(path);
-		this_thread::sleep_for(chrono::seconds(2)); 
 	}
 }
+void ScanManager::StartWatch(const string &path)
+{
+	//增加重命名监控
+
+	g_FileCount = GetFileCount(path);
+	while(1)
+	{
+		//监控path目录的文件个数是否有变化
+		g_ScanCount = 0;
+		bool ischange = DirectoryWatch(path);
+		if(ischange)
+		{
+			//发送扫描信号
+			m_cond.notify_one();
+			g_FileCount = g_ScanCount;
+		}
+		this_thread::sleep_for(chrono::seconds(3));
+	}
+}
+
 ScanManager& ScanManager::CreateInstance(const string &path)
 {
 	static ScanManager inst;
 	//创建扫描线程
 	thread scan_thread(&StartScan, &inst, path);
-	//线程分离
 	scan_thread.detach();
+
+	//创建监控线程
+	thread watch_thread(&StartWatch, &inst, path);
+	watch_thread.detach();
 	return inst;
 }
 
@@ -84,6 +114,7 @@ void ScanManager::ScanDirectory(const string &path)
 	//递归遍历子目录
 	for(auto &dir : local_dirs)
 	{
+		//C:\Users\baoso\Desktop\55班\test\阶段性考试试卷\C语言
 		string dir_path = path;
 		dir_path += '\\';
 		dir_path += dir;
