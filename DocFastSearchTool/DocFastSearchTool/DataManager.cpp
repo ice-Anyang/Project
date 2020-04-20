@@ -151,12 +151,12 @@ void DataManager::DeleteDoc(const string &path, string doc)
 	m_dbmgr.ExecuteSql(sql);
 
 	//递归删除子目录
-	//C:\Users\baoso\Desktop\55班\test\阶段性考试试卷\my_dir
+	//E:\\Users\\Documents\\计算机专业课件
 	string doc_path = path;
 	doc_path += "\\";
-	//C:\Users\baoso\Desktop\55班\test\阶段性考试试卷\my_dir\
+	//E:\\Users\\Documents\\计算机专业课件
 	doc_path += doc;
-	//C:\Users\baoso\Desktop\55班\test\阶段性考试试卷\my_dir\AA
+	//E:\\Users\\Documents\\计算机专业课件\AA
 	sprintf(sql, "delete from %s where doc_path like '%s%%'", DOC_TABLE, doc_path.c_str());
 	m_dbmgr.ExecuteSql(sql);
 }
@@ -222,9 +222,6 @@ void DataManager::SplitHightLight(const string &str, const string &key,
 	}
 
 	//2 拼音全拼搜索，如果能匹配，则需要匹配分离的汉字和拼音
-	//str = "123比特科技,abc,让就业更简单666"; 
-	//str_pinyin = "123bitekeji,abc,rangjiuyegengjiandan666"
-	//key_pinyin = "jiuye"
 
 	string str_pinyin = ChineseConvertPinYinAllSpell(strlower);
 	string key_pinyin = ChineseConvertPinYinAllSpell(keylower);
@@ -271,7 +268,6 @@ void DataManager::SplitHightLight(const string &str, const string &key,
 	}
 
 	//3 首字母搜索 如果能匹配，则需要匹配分离汉字和首字母
-	//留给同学们自行完成
 	std::string key_initials = ChineseConvertPinYinInitials(keylower);
 	std::string str_initials = ChineseConvertPinYinInitials(strlower);
 	pos = str_initials.find(key_initials);

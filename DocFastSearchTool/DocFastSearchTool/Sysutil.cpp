@@ -14,17 +14,17 @@ void HideCursor()
 	CONSOLE_CURSOR_INFO cursor_info = {100, 0};
 	SetConsoleCursorInfo(handle, &cursor_info);
 }
-//画列  ||
+//画列  |
 void DrawCol(int x, int y)
 {
 	for(int i=0; i<HEIGHT; ++i)
 	{
 		SetCurPos(x+i, y);
-		printf("||");
+		printf("|");
 	}
 }
 
-//画行 =
+//画行 -
 void DrawRow(int x, int y)
 {
 	for(int i=0; i<WIDTH-4; ++i)
@@ -83,7 +83,7 @@ void DrawMenu()
 
 	//设置 输入:>
 	SetCurPos(HEIGHT-5, 2);
-	printf("%s","请输入:>");
+	printf("%s","请输入:");
 }
 
 
@@ -122,7 +122,7 @@ bool DirectoryWatch(const string &path)
 ////////////////////////////////////////////////////////////////////////////////////////
 void DirectoryList(const string &path, vector<string> &subfile, vector<string> &subdir)
 {
-	//"C:\\Users\\baoso\\Desktop\\55班\\test\\阶段性考试试卷\\*.*";
+	//"E:\\Users\\Documents\\计算机专业课件\\*.*";
 	string _path = path;
 	_path += "\\*.*";  //通配符  * ？%
 
@@ -160,7 +160,7 @@ void DirectoryList(const string &path, vector<string> &subfile, vector<string> &
 		//递归显示目录里面的文件
 		vector<string> _subfile, _subdir;
 
-		//"C:\\Users\\baoso\\Desktop\\55班\\test\\阶段性考试试卷\\C语言";
+		//"E:\\Users\\Documents\\计算机专业课件";
 		string tmp_path = path;
 		tmp_path += "\\";
 		tmp_path += e;

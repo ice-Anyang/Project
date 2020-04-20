@@ -10,7 +10,7 @@ void ScanManager::StartScan(const string &path)
 {
 	while(1)
 	{
-		//this_thread::sleep_for(chrono::seconds(2)); //1 bug 效率损伤
+		//this_thread::sleep_for(chrono::seconds(2)); //
 
 		unique_lock<mutex> lock(m_mutex);
 		m_cond.wait(lock);
@@ -114,7 +114,7 @@ void ScanManager::ScanDirectory(const string &path)
 	//递归遍历子目录
 	for(auto &dir : local_dirs)
 	{
-		//C:\Users\baoso\Desktop\55班\test\阶段性考试试卷\C语言
+		//E:\\Users\\Documents\\计算机专业课件
 		string dir_path = path;
 		dir_path += '\\';
 		dir_path += dir;

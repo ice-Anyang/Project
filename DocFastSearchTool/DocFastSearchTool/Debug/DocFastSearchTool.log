@@ -1,20 +1,37 @@
-﻿生成启动时间为 2020/4/20 10:06:27。
-     1>项目“C:\Users\14610\Desktop\毕业复习\c++项目\项目总结\DocFastSearchTool\DocFastSearchTool\DocFastSearchTool.vcxproj”在节点 2 上(Build 个目标)。
+﻿生成启动时间为 2020/4/20 14:07:41。
+     1>项目“E:\Ice_bitwork\bit-githup\Project\DocFastSearchTool\DocFastSearchTool\DocFastSearchTool.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
-         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Sysutil.cpp
+         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt DataManager.cpp ScanManager.cpp Sysutil.cpp
          Sysutil.cpp
-     1>c:\users\14610\desktop\毕业复习\c++项目\项目总结\docfastsearchtool\docfastsearchtool\sysutil.cpp(47): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>e:\ice_bitwork\bit-githup\project\docfastsearchtool\docfastsearchtool\sysutil.cpp(47): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : 参见“sprintf”的声明
-     1>c:\users\14610\desktop\毕业复习\c++项目\项目总结\docfastsearchtool\docfastsearchtool\sysutil.cpp(52): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>e:\ice_bitwork\bit-githup\project\docfastsearchtool\docfastsearchtool\sysutil.cpp(52): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : 参见“sprintf”的声明
+         ScanManager.cpp
+         DataManager.cpp
+     1>e:\ice_bitwork\bit-githup\project\docfastsearchtool\docfastsearchtool\datamanager.cpp(109): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : 参见“sprintf”的声明
+     1>e:\ice_bitwork\bit-githup\project\docfastsearchtool\docfastsearchtool\datamanager.cpp(118): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : 参见“sprintf”的声明
+     1>e:\ice_bitwork\bit-githup\project\docfastsearchtool\docfastsearchtool\datamanager.cpp(142): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : 参见“sprintf”的声明
+     1>e:\ice_bitwork\bit-githup\project\docfastsearchtool\docfastsearchtool\datamanager.cpp(150): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : 参见“sprintf”的声明
+     1>e:\ice_bitwork\bit-githup\project\docfastsearchtool\docfastsearchtool\datamanager.cpp(160): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : 参见“sprintf”的声明
+     1>e:\ice_bitwork\bit-githup\project\docfastsearchtool\docfastsearchtool\datamanager.cpp(167): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : 参见“sprintf”的声明
+     1>e:\ice_bitwork\bit-githup\project\docfastsearchtool\docfastsearchtool\datamanager.cpp(189): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(356) : 参见“sprintf”的声明
+         正在生成代码...
        Link:
-         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\14610\Desktop\毕业复习\c++项目\项目总结\DocFastSearchTool\Debug\DocFastSearchTool.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\14610\Desktop\毕业复习\c++项目\项目总结\DocFastSearchTool\Debug\DocFastSearchTool.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\14610\Desktop\毕业复习\c++项目\项目总结\DocFastSearchTool\Debug\DocFastSearchTool.lib" /MACHINE:X86 Debug\DataManager.obj
+         E:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\Ice_bitwork\bit-githup\Project\DocFastSearchTool\Debug\DocFastSearchTool.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\Ice_bitwork\bit-githup\Project\DocFastSearchTool\Debug\DocFastSearchTool.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\Ice_bitwork\bit-githup\Project\DocFastSearchTool\Debug\DocFastSearchTool.lib" /MACHINE:X86 Debug\DataManager.obj
          Debug\DocFastSearchTool.obj
          Debug\ScanManager.obj
          Debug\Sysutil.obj
-         DocFastSearchTool.vcxproj -> C:\Users\14610\Desktop\毕业复习\c++项目\项目总结\DocFastSearchTool\Debug\DocFastSearchTool.exe
-     1>已完成生成项目“C:\Users\14610\Desktop\毕业复习\c++项目\项目总结\DocFastSearchTool\DocFastSearchTool\DocFastSearchTool.vcxproj”(Build 个目标)的操作。
+         DocFastSearchTool.vcxproj -> E:\Ice_bitwork\bit-githup\Project\DocFastSearchTool\Debug\DocFastSearchTool.exe
+     1>已完成生成项目“E:\Ice_bitwork\bit-githup\Project\DocFastSearchTool\DocFastSearchTool\DocFastSearchTool.vcxproj”(Build 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:00.84
+已用时间 00:00:02.23
