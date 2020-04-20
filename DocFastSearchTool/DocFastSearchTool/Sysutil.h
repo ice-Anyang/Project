@@ -1,7 +1,7 @@
 #pragma once
 
 #include"Common.h"
-
+//хуж╬дё©И
 #ifndef __TRACE__
 	//#define __TRACE__
 #endif

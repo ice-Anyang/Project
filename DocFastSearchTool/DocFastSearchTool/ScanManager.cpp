@@ -21,7 +21,6 @@ void ScanManager::StartScan(const string &path)
 void ScanManager::StartWatch(const string &path)
 {
 	//增加重命名监控
-
 	g_FileCount = GetFileCount(path);
 	while(1)
 	{

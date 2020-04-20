@@ -88,7 +88,7 @@ void DrawMenu()
 
 
 //////////////////////////////////////////////////////////////
-
+//Ä¿Â¼É¨Ãè
 extern size_t g_FileCount;
 extern size_t g_ScanCount;
 

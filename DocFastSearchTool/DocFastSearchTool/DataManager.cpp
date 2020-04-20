@@ -203,8 +203,6 @@ void DataManager::Search(const string &key, vector<pair<string, string>> &doc_pa
 void DataManager::SplitHightLight(const string &str, const string &key, 
 								  string &prefix, string &hightlight, string &suffix)
 {
-	//str = "123比特科技,让就业更简单666"; 
-	//key = "就业";
 
 	string strlower = str;
 	string keylower = key;
